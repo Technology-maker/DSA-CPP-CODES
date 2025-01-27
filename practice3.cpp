@@ -1282,35 +1282,98 @@
 //
 //   two pointer aproach in in addition of two number in an aray.
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// int mai()
+// {
+//     vector<int> arr = {2, 5, 7, 9, 5, 2};
+//     int n = arr.size();
+//     int target;
+//     cout << "enter the sum you find ! ";
+//     cin >> target;
+//     int i = 0;
+//     int j = n;
+
+//     while (i < n)
+//     {
+//         if (arr[i] + arr[j] > target)
+//         {
+//             j--;
+//         }
+
+//         else if (arr[i] < arr[j] < target)
+//         {
+//             i++;
+//         }
+//         else if (arr[i] + arr[j] == target)
+//         {
+//             cout << "index values is  = " << i << j;
+//             break;
+//         }
+//     }
+
+//     return 0;
+// }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// leadersin an array
+
 #include <bits/stdc++.h>
 using namespace std;
-int mai()
+int main()
 {
-    vector<int> arr = {2, 5, 7, 9, 5, 2};
-    int n = arr.size();
-    int target;
-    cout << "enter the sum you find ! ";
-    cin >> target;
-    int i = 0;
-    int j = n;
-
-    while (i < n)
+    vector<int> arr = {2, 3, 5, 23, 5, 6, 77, 64, 34, 5, 6, 8, 8, 2};
+    vector<int> ans;
+    bool leader;
+    for (int i = 0; i < arr.size(); i++)
     {
-        if (arr[i] + arr[j] > target)
+        leader = true;
+        for (int j = i + 1; j < arr.size(); j++)
         {
-            j--;
+            if (arr[i] > arr[j])
+            {
+                leader = false;
+                break;
+            }
         }
-
-        else if (arr[i] < arr[j] < target)
+        if (leader == true)
         {
-            i++;
-        }
-        else if (arr[i] + arr[j] == target)
-        {
-            cout << "index values is  = " << i << j;
-            break;
+            ans.emplace_back(arr[i]);
         }
     }
 
+    for (auto it : ans)
+    {
+        cout << "leaders = " << it << endl;
+    }
     return 0;
 }
